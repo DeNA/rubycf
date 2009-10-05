@@ -1,0 +1,20 @@
+Ruby extension for dealing with CoreFoundation types.  Mostly designed for marshaling structures through binary plists.
+
+See tests for usage.
+
+To get this to work outside of the OS X, you need to compile lib/CoreFoundation and link against it when building the gem.  This isn't build into extconf.rb yet, but it will need to be in the future.
+
+About CFData:
+Since Ruby doesn't treat strings any differently from raw data and CoreFoundation does, there needed to be a way to specify if a string is a string or if it's just data.  For this purpose, I've created the class RubyCF::Data, which is just a container for a ruby string.  When a RubyCF::Data object is passed into the plist encoder, it will encode the data as CFData.  Likewise, when a CFData object is encountered while decoding a plist, a RubyCF::Data object will be created.
+
+TODO
+--------------
+- rubyland convenience methods
+
+
+==========
+notes:
+
+Building CFLite:
+http://cafeine.crulrg.ulaval.ca/users/dccote/weblog/0514e/CoreFoundation_Lite_on_Linux.html
+http://developer.apple.com/opensource/cflite.html
