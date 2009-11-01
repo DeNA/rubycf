@@ -1,6 +1,11 @@
 require 'rubygems'
 require 'rake/gempackagetask'
 require 'rake/testtask'
+require 'rake/clean'
+
+CLEAN.include('*.o')
+CLEAN.include('Makefile')
+CLOBBER.include('rubycf.bundle')
 
 # load gemspec
 $gemspec = File.open(File.join(Dir.pwd, 'rubycf.gemspec'), 'r'){|f| eval(f.read)}
