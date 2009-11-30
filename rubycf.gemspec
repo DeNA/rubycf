@@ -3,7 +3,7 @@ Gem::Specification.new do |s|
   s.version = "0.2.0"
   s.author = "Dave Grijalva"
   s.email = "dgrijalva@ngmoco.com"
-  s.homepage = "http://ngmoco.com/"
+  s.homepage = "http://github.com/ngmoco/rubycf/"
   s.platform = Gem::Platform::RUBY
   s.summary = "Ruby extension for dealing with CoreFoundation types.  Mostly designed for reading and writing xml and binary property lists."
   s.files = FileList["{bin,lib}/**/*"].to_a
