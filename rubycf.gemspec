@@ -1,6 +1,6 @@
 Gem::Specification.new do |s| 
   s.name = "rubycf"
-  s.version = "0.0.2"
+  s.version = "0.1.0"
   s.author = "Dave Grijalva"
   s.email = "dgrijalva@ngmoco.com"
   s.homepage = "http://ngmoco.com/"
