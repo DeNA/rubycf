@@ -45,10 +45,10 @@ module RubyCF
 end
 
 class Object
-  def to_plist
+  def to_plist(type = :binary)
     # supported types
     # [Integer, Float, String, Array, Hash, RubyCF::Data].each do |klass|
-      return RubyCF::PList.encode(self) #if self.is_a? klass
+      return RubyCF::PList.encode(self, type) #if self.is_a? klass
     # end
     # 
     # if self.resond_to? :to_hash

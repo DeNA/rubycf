@@ -155,7 +155,13 @@ VALUE rbcf_plist_encode(int argc, VALUE *argv, VALUE self) {
     VALUE structure, encoding;
     rb_scan_args(argc, argv, "11", &structure, &encoding);
 
-    CFPropertyListFormat format = kCFPropertyListBinaryFormat_v1_0; // the format of the plist
+    CFPropertyListFormat format;  // the output format of the plist
+    if(encoding != Qnil && rb_to_id(encoding) == rb_intern("xml")) {
+        format = kCFPropertyListXMLFormat_v1_0;
+    }
+    else {
+        format = kCFPropertyListBinaryFormat_v1_0;
+    }
     CFStringRef errorString; // Parsing error string
 
     CFPropertyListRef cf_structure = rbcf_plist_convert_to_cf(structure);

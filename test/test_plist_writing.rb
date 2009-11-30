@@ -69,5 +69,20 @@ class TestPlistReading < Test::Unit::TestCase
       assert_equal nil, RubyCF::PList.decode(UnencodableClass.new.to_plist)
     end
     
+    should "be able to encode xml property lists" do
+      obj = RubyCF::PList.parse_file('test/test_assets/Complex.plist')
+
+      xml_plist = RubyCF::PList.encode(obj, :xml)
+      assert_match(/xml/, xml_plist)
+      parsed_xml_plist = RubyCF::PList.parse(xml_plist)
+      assert_equal(obj, parsed_xml_plist)
+      
+      xml_plist = obj.to_plist(:xml)
+      assert_match(/xml/, xml_plist)
+      parsed_xml_plist = RubyCF::PList.parse(xml_plist)
+      assert_equal(obj, parsed_xml_plist)
+      
+    end
+    
   end
 end
