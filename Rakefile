@@ -10,11 +10,13 @@ CLOBBER.include('rubycf.bundle')
 # load gemspec
 $gemspec = File.open(File.join(Dir.pwd, 'rubycf.gemspec'), 'r'){|f| eval(f.read)}
 
+desc "Compile the library"
 task :build do
   puts `ruby extconf.rb && make --always-make`
   raise 'Build failed' unless $? == 0
 end
 
+desc "Compile and install the library"
 task :install => [:build] do
   `make install`
 end
