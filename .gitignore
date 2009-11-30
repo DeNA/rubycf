@@ -3,3 +3,4 @@ Makefile
 *.so
 rubycf.bundle
 pkg
+html

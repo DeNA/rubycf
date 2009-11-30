@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'rake/gempackagetask'
 require 'rake/testtask'
+require 'rake/rdoctask'
 require 'rake/clean'
 
 CLEAN.include('*.o')
@@ -29,6 +30,11 @@ Rake::TestTask.new do |t|
   t.libs << "test"
   t.test_files = FileList['test/test_*.rb']
   t.verbose = true
+end
+
+Rake::RDocTask.new do |rd|
+  rd.main = 'README'
+  rd.rdoc_files.include('README', 'lib/**/*.rb', 'lib/rubycf.c')
 end
 
 task :test => [:build]

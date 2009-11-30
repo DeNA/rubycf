@@ -1,11 +1,11 @@
 Gem::Specification.new do |s| 
   s.name = "rubycf"
-  s.version = "0.1.0"
+  s.version = "0.2.0"
   s.author = "Dave Grijalva"
   s.email = "dgrijalva@ngmoco.com"
   s.homepage = "http://ngmoco.com/"
   s.platform = Gem::Platform::RUBY
-  s.summary = "Bindings for Apple Core Foundation"
+  s.summary = "Ruby extension for dealing with CoreFoundation types.  Mostly designed for reading and writing xml and binary property lists."
   s.files = FileList["{bin,lib}/**/*"].to_a
   s.require_path = "lib"
   s.autorequire = "rubycf"
